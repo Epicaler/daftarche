@@ -275,7 +275,7 @@ php artisan test
 
 ## طراح و توسعه‌دهنده
 
-طراحی و توسعه: **حسام**
+طراحی و توسعه: **[@MREpicaler](https://t.me/MREpicaler)**
 
 - تلگرام: [@MREpicaler](https://t.me/MREpicaler)
 - گیت‌هاب: [@Epicaler](https://github.com/Epicaler)
@@ -288,4 +288,4 @@ php artisan test
 
 ---
 
-<p align="center">© ۱۴۰۵ حسام | <a href="https://t.me/MREpicaler">@MREpicaler</a> | تمامی حقوق محفوظ است.</p>
+<p align="center">© ۱۴۰۵ <a href="https://t.me/MREpicaler">@MREpicaler</a> | تمامی حقوق محفوظ است.</p>

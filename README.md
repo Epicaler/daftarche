@@ -278,7 +278,7 @@ The tests always run on an in-memory SQLite database. As a safeguard, they refus
 
 ## Author
 
-Designed and developed by **Hesam**.
+Designed and developed by **[@MREpicaler](https://t.me/MREpicaler)**.
 
 - Telegram: [@MREpicaler](https://t.me/MREpicaler)
 - GitHub: [@Epicaler](https://github.com/Epicaler)
@@ -291,4 +291,4 @@ Released under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">© 2026 Hesam · <a href="https://t.me/MREpicaler">@MREpicaler</a> · All rights reserved.</p>
+<p align="center">© 2026 <a href="https://t.me/MREpicaler">@MREpicaler</a> · All rights reserved.</p>
