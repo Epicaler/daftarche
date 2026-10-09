@@ -8,6 +8,8 @@
 
 رابط کاربری فارسی و راست‌به‌چپ · تقویم شمسی · آماده اجرا با Docker
 
+[![Telegram](https://img.shields.io/badge/Telegram-@MREpicaler-26A5E4?logo=telegram&logoColor=white)](https://t.me/MREpicaler)
+
 [English](README.md)
 
 <br>
@@ -271,6 +273,19 @@ php artisan test
 
 تست‌ها همیشه روی یک دیتابیس SQLite موقت در حافظه اجرا می‌شوند. اگر قرار باشد به دیتابیس دیگری دست بزنند، اجرا نمی‌شوند تا اطلاعات واقعی از بین نرود.
 
+## طراح و توسعه‌دهنده
+
+طراحی و توسعه: **حسام**
+
+- تلگرام: [@MREpicaler](https://t.me/MREpicaler)
+- گیت‌هاب: [@Epicaler](https://github.com/Epicaler)
+
+برای پرسش، پیشنهاد یا گزارش مشکل می‌توانید در تلگرام پیام بدهید یا در گیت‌هاب یک issue ثبت کنید.
+
 ## مجوز
 
 این پروژه تحت [مجوز MIT](LICENSE) منتشر شده است.
+
+---
+
+<p align="center">© ۱۴۰۵ حسام | <a href="https://t.me/MREpicaler">@MREpicaler</a> | تمامی حقوق محفوظ است.</p>

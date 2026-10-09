@@ -13,6 +13,13 @@
         "rtl"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Hesam",
+            "homepage": "https://t.me/MREpicaler",
+            "role": "Designer & Developer"
+        }
+    ],
     "require": {
         "php": "^8.3",
         "laravel/framework": "^13.17",

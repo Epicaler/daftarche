@@ -63,7 +63,8 @@
 }
 
 @utility card {
-    @apply rounded-3xl bg-white p-5 shadow-card;
+    /* min-w-0: wide content (tables, charts) scrolls inside the card instead of widening the grid */
+    @apply min-w-0 rounded-3xl bg-white p-5 shadow-card;
 }
 
 @utility card-title {

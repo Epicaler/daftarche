@@ -13,6 +13,7 @@ Persian (RTL) interface · Jalali (Shamsi) calendar · Docker-ready
 [![Alpine.js](https://img.shields.io/badge/Alpine.js-3-8BC0D0?logo=alpinedotjs&logoColor=white)](https://alpinejs.dev)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)](#option-1--docker-recommended)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Telegram](https://img.shields.io/badge/Telegram-@MREpicaler-26A5E4?logo=telegram&logoColor=white)](https://t.me/MREpicaler)
 
 [فارسی](README.fa.md) · [Features](#features) · [Screenshots](#screenshots) · [Installation](#installation) · [Configuration](#configuration)
 
@@ -275,6 +276,19 @@ php artisan test
 
 The tests always run on an in-memory SQLite database. As a safeguard, they refuse to start if they would touch any other database.
 
+## Author
+
+Designed and developed by **Hesam**.
+
+- Telegram: [@MREpicaler](https://t.me/MREpicaler)
+- GitHub: [@Epicaler](https://github.com/Epicaler)
+
+Questions, ideas, or bug reports are welcome on Telegram or as a GitHub issue.
+
 ## License
 
 Released under the [MIT License](LICENSE).
+
+---
+
+<p align="center">© 2026 Hesam · <a href="https://t.me/MREpicaler">@MREpicaler</a> · All rights reserved.</p>

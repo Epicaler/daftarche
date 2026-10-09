@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1a5c3b">
+    <meta name="author" content="Hesam (t.me/MREpicaler)">
     <title>{{ isset($title) ? $title.' — ' : '' }}{{ config('app.name') }}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -24,6 +25,8 @@
                 <main class="flex-1 rounded-[28px] bg-surface p-4 sm:p-6">
                     {{ $slot }}
                 </main>
+
+                @include('partials.footer')
             </div>
         </div>
     </div>
