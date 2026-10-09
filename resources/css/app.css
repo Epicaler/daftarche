@@ -1,0 +1,174 @@
+@import 'vazirmatn/misc/Farsi-Digits/Vazirmatn-FD-font-face.css';
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Vazirmatn FD', ui-sans-serif, system-ui, sans-serif;
+
+    --color-brand-50: #eef7f1;
+    --color-brand-100: #d7eedf;
+    --color-brand-200: #b0dcc1;
+    --color-brand-300: #7fc59d;
+    --color-brand-400: #4fa978;
+    --color-brand-500: #2d8c5b;
+    --color-brand-600: #217249;
+    --color-brand-700: #1a5c3b;
+    --color-brand-800: #164a31;
+    --color-brand-900: #113b27;
+    --color-brand-950: #0a2418;
+
+    --color-canvas: #e9ebe7;
+    --color-surface: #f5f6f3;
+    --color-ink: #141c17;
+    --color-muted: #8b938e;
+    --color-line: #e6e8e4;
+
+    --color-income: #217249;
+    --color-expense: #c9761f;
+    --color-danger: #d0473f;
+
+    --shadow-card: 0 1px 2px rgb(20 28 23 / 0.04);
+    --shadow-float: 0 24px 60px -20px rgb(20 28 23 / 0.35);
+}
+
+@utility hatch {
+    background-image: repeating-linear-gradient(-45deg, rgb(110 122 115 / 0.75) 0 2px, transparent 2px 7px);
+    background-color: #fff;
+    box-shadow: inset 0 0 0 1px rgb(110 122 115 / 0.25);
+}
+
+@utility scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #cfd4cf transparent;
+}
+
+@layer base {
+    html {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    input[type='number']::-webkit-inner-spin-button {
+        appearance: none;
+    }
+
+    ::selection {
+        background: var(--color-brand-200);
+    }
+}
+
+@utility card {
+    @apply rounded-3xl bg-white p-5 shadow-card;
+}
+
+@utility card-title {
+    @apply text-[17px] font-semibold text-ink;
+}
+
+@utility btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium whitespace-nowrap transition select-none disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+@utility btn-primary {
+    @apply btn bg-linear-to-b from-brand-600 to-brand-800 text-white shadow-[0_8px_20px_-8px_var(--color-brand-700)] hover:from-brand-500 hover:to-brand-700;
+}
+
+@utility btn-outline {
+    @apply btn border-[1.5px] border-brand-800 bg-white text-brand-900 hover:bg-brand-50;
+}
+
+@utility btn-ghost {
+    @apply btn bg-surface text-ink hover:bg-line;
+}
+
+@utility btn-danger {
+    @apply btn bg-red-50 text-red-700 hover:bg-red-100;
+}
+
+@utility btn-sm {
+    @apply px-3.5 py-1.5 text-[13px];
+}
+
+@utility icon-btn {
+    @apply inline-flex size-9 cursor-pointer items-center justify-center rounded-full text-muted transition hover:bg-surface hover:text-ink;
+}
+
+@utility label {
+    @apply mb-1.5 block text-[13px] font-medium text-ink/80;
+}
+
+@utility input {
+    @apply w-full rounded-2xl border border-line bg-white px-4 py-2.5 text-sm text-ink transition outline-none placeholder:text-muted/70 focus:border-brand-400 focus:ring-4 focus:ring-brand-100;
+}
+
+@utility input-error {
+    @apply mt-1.5 text-xs text-danger;
+}
+
+@utility badge {
+    @apply inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-[11px] font-medium whitespace-nowrap;
+}
+
+@utility chip {
+    @apply cursor-pointer rounded-full px-4 py-1.5 text-[13px] font-medium text-muted transition hover:text-ink;
+}
+
+@utility chip-active {
+    @apply bg-white text-ink shadow-card;
+}
+
+/* Chart tooltips are rendered as our own HTML so Persian text flows RTL */
+.apexcharts-tooltip.apexcharts-theme-light {
+    border: 1px solid var(--color-line) !important;
+    border-radius: 14px !important;
+    background: #fff !important;
+    box-shadow: var(--shadow-float) !important;
+}
+
+.chart-tip {
+    direction: rtl;
+    min-width: 11rem;
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--color-ink);
+    text-align: right;
+}
+
+.chart-tip-title {
+    margin-bottom: 0.35rem;
+    color: var(--color-muted);
+}
+
+.chart-tip-row {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.15rem 0;
+}
+
+.chart-tip-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    flex-shrink: 0;
+    border-radius: 9999px;
+}
+
+.chart-tip-name {
+    flex: 1;
+}
+
+.chart-tip-value {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.chart-tip-muted {
+    font-weight: 400;
+    color: var(--color-muted);
+}

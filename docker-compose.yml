@@ -1,0 +1,77 @@
+name: daftarche
+
+# The project folder is bind-mounted into every container: edit files on your machine and
+# changes apply immediately (PHP/Blade instantly, CSS/JS via the Vite dev server).
+# Database files live in ./docker/data/mariadb, so `down` (even `down -v`) never deletes them.
+
+services:
+  app:
+    build:
+      context: ./docker/php
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    image: daftarche-php
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DB_CONNECTION: mariadb
+      DB_HOST: db
+      DB_PORT: 3306
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:80"
+    volumes:
+      - ./public:/var/www/html/public:ro
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  # Builds assets once, then runs Vite's dev server (hot reload for CSS/JS, auto-refresh on Blade edits)
+  node:
+    image: node:24-bookworm-slim
+    restart: unless-stopped
+    init: true
+    user: "${UID:-1000}:${GID:-1000}"
+    working_dir: /app
+    environment:
+      HOME: /tmp
+      VITE_PORT: ${VITE_PORT:-5180}
+    volumes:
+      - ./:/app
+    ports:
+      - "${VITE_PORT:-5180}:${VITE_PORT:-5180}"
+    # Waits for the app container's composer install (Livewire's JS is imported from vendor/)
+    command: >
+      sh -c "until [ -f vendor/livewire/livewire/dist/livewire.esm.js ]; do echo 'waiting for vendor/ (composer install)...'; sleep 3; done;
+             [ -d node_modules ] || npm ci;
+             npm run build && exec node node_modules/vite/bin/vite.js"
+
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      MARIADB_DATABASE: ${DB_DATABASE:-accounting}
+      MARIADB_USER: ${DB_USERNAME:-accounting}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-secret}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootsecret}
+      TZ: Asia/Tehran
+    # docker/data exists in the repo (owned by you), so MariaDB can create its folder inside it
+    command: --datadir=/var/lib/mysql-data/mariadb
+    volumes:
+      - ./docker/data:/var/lib/mysql-data
+    healthcheck:
+      # TCP ping only succeeds once first-run initialisation is done and the real server is listening
+      test: ["CMD-SHELL", "mariadb-admin ping -h 127.0.0.1 -uroot -p\"$$MARIADB_ROOT_PASSWORD\" --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
